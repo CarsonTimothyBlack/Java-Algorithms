@@ -1,0 +1,29 @@
+--PROBLEM--
+Write a method that returns the sum of the first and last digit of a given number.
+
+Eg. 102, would return 3.
+    5 would return 10.
+    567849 would return 14.
+
+--SOLUTION--
+public static int sumFirstAndLastDigit(int number) {
+        if(number < 0) {
+            System.out.println(-1);
+            return -1;
+        }
+        int first;
+        int second = 0;
+        if(number < 10) {
+            first = number;
+            second = number;
+        } else {
+            first = number % 10;
+        }
+        while(number >= 10) {
+            number /= 10;
+            if(number < 10) {
+                second = number;
+            }
+        }
+        return first + second;
+    }
