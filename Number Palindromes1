@@ -1,0 +1,22 @@
+--Problem--
+Write a method that tests if a number is a palindrome or not.
+
+Eg. 1221 would return true.
+    1234 would return false.
+    -1221 would return true.
+    
+--SOLUTION--
+public static boolean isPalindrome(int number) {
+        int reverse = 0;
+        if(number < 0) {
+            number *= -1;
+        }
+        int place = number;
+        while(place > 0) {
+            reverse += place % 10;
+            reverse *= 10;
+            place /= 10;
+        }
+        reverse /=10;
+        return reverse == number;
+    }
