@@ -1,0 +1,23 @@
+--PROBLEM--
+Write a method that returns true if both given numbers share a digit. Given numbers have to be between 10-99 (inclusive), or method should return false.
+
+Eg. 12, 23 should return true, since both have "2".
+    5, 55 should return false, since 5 is less than 10.
+    91, 95 should return true, since both have "9".
+
+--SOLUTION--
+public static boolean hasSharedDigit(int x, int y) {
+        if(x < 10 || x > 99 || y < 10 || y > 99 ) {
+            return false;
+        }
+        int tester = 0;
+        while(x > 0) {
+            tester = x % 10;
+            System.out.println(tester);
+            if(tester == y % 10 || tester == y / 10) {
+                return true;
+            }
+            x /=10;
+        }
+        return false;
+    }
