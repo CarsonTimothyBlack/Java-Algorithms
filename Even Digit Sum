@@ -1,0 +1,25 @@
+--PROBLEM--
+Write a method that returns the sum of all even numbers in a given number. If given number is negative, return -1.
+
+Eg. 212 should return 4.
+    123456789 should return 20.
+    2 should return 2.
+    573 should return 0.
+
+--SOLUTION--
+public static int getEvenDigitSum(int number) {
+        if(number < 0) {
+            System.out.println(-1);
+            return -1;
+        }
+        int sum = 0;
+        int testNum = 0;
+        while(number > 0) {
+            testNum = number % 10;
+            if(testNum % 2 == 0) {
+                sum += testNum;
+            }
+            number/= 10;
+        }
+        return sum;
+    }
