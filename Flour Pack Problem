@@ -1,0 +1,23 @@
+--PROBLEM--
+Write a method that takes 3 parameters: bigCount, smallCount, and goal. The big count is worth 5 kilos, small is worth 1,
+and goal is the kilo amount that must be filled.
+
+Return true if the bags can be evenly divided to fulfill goal. There can be leftovers.
+
+Return false if there are negative amounts, there are not enough kilos in big or small bags, or if bags cannot be divided evenly.
+
+
+--SOLUTION--
+public static boolean canPack(int bigCount, int smallCount, int goal) {
+        if(bigCount < 0 || smallCount < 0 || goal < 0 || (bigCount * 5) + smallCount < goal) {
+            return false;
+        }
+        while(goal >= 5 && bigCount > 0) {
+            goal -= 5;
+            bigCount--;
+        }
+        if(goal <= smallCount) {
+            return true;
+        }
+        return false;
+    }
