@@ -1,0 +1,22 @@
+--PROBLEM--
+Write a method that returns the largest prime factor of a given number.
+
+If a number is less than zero or does not have any prime factors, return -1.
+
+Eg. 21 should return 7.
+    217 should return 31.
+    0 should return -1.
+
+
+--SOLUTION--
+public static int getLargestPrime(int number) {
+        if(number <= 1) {
+            return -1;
+        }
+        for(int i = number; i > 1; i--) {
+            if(number % i == 0) {
+                number = i;
+            }
+        }
+        return number;
+    }
